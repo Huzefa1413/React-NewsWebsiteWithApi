@@ -5,21 +5,21 @@ import "./index.css";
 
 function Home() {
   const [post, setPost] = useState([]);
+  const [search, setSearch] = useState("World");
+
   useEffect(() => {
     axios
       .get(
         `https://newsapi.org/v2/everything?q=${search}&from=2022-10-15&sortBy=popularity&apiKey=299b4698317642c5a2255c1f031f0e1b`
       )
       .then((response) => {
-        console.log(response.data.articles);
-
+        console.log(response.data.articles)
         setPost(response.data.articles);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-  const [search, setSearch] = useState("World");
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -29,7 +29,6 @@ function Home() {
         `https://newsapi.org/v2/everything?q=${search}&from=2022-10-15&sortBy=popularity&apiKey=299b4698317642c5a2255c1f031f0e1b`
       )
       .then((response) => {
-        console.log(response.data.articles);
         setPost(response.data.articles);
       })
       .catch((err) => {
@@ -58,13 +57,15 @@ function Home() {
       </div>
 
       <div className="newspostsbody">
-        {post.map((eachPost, i) => (
+        {post.map((eachPost) => (
           <Post
             author={eachPost.author}
             publishedAt={eachPost.publishedAt}
             title={eachPost.title}
             description={eachPost.description}
             urlToImage={eachPost.urlToImage}
+            source={eachPost.source.name}
+            url={eachPost.url}
           />
         ))}
       </div>
