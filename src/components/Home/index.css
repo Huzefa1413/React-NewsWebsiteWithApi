@@ -37,12 +37,10 @@ button {
 @media screen and (max-width: 525px) {
   .logo {
     width: 100%;
-    background-color: gray;
     text-align: center;
   }
   .search {
     width: 100%;
-    background-color: gold;
     display: flex;
     align-items: center;
     justify-content: center;
