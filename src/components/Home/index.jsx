@@ -13,7 +13,6 @@ function Home() {
         `https://newsapi.org/v2/everything?q=${search}&from=2022-10-15&sortBy=popularity&apiKey=299b4698317642c5a2255c1f031f0e1b`
       )
       .then((response) => {
-        console.log(response.data.articles)
         setPost(response.data.articles);
       })
       .catch((err) => {
