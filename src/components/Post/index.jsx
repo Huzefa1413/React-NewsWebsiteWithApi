@@ -1,12 +1,9 @@
 import "./index.css";
 
-const Post = (props) => (
-  <div className="post">
+const Post = (props, i) => (
+  <div key={i} className="post">
     <h2>{props.source}</h2>
-    <div className="head">
-      <div className="author">{props.author}</div>
-      <div className="time">{props.publishedAt}</div>
-    </div>
+    <div className="time">{props.publishedAt}</div>
     <div className="data">
       <h3>{props.title}</h3>
       <p>{props.description}</p>
