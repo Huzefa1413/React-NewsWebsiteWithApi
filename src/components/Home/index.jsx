@@ -30,7 +30,7 @@ function Home() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
+    console.log("hi");
     const options = {
       method: 'GET',
       url: 'https://bing-news-search1.p.rapidapi.com/news/search',
@@ -49,7 +49,6 @@ function Home() {
     });
 
   };
-
   return (
     <>
       <div className="navbar">
@@ -57,7 +56,7 @@ function Home() {
           <h1>Robotsy News</h1>
         </div>
         <div className="search">
-          <form onSubmit={submitHandler}>
+          <form className="searchform" onSubmit={submitHandler}>
             <input
               type="text"
               placeholder="Search Robotsy News"
@@ -69,16 +68,17 @@ function Home() {
           </form>
         </div>
       </div>
-
+      <form className="news" onSubmit={submitHandler}>
+        <button type="submit" onClick={() => setSearch("World")}>World</button>
+        <button type="submit" onClick={() => setSearch("Business")}>Business</button>
+        <button type="submit" onClick={() => setSearch("Technology")}>Technology</button>
+        <button type="submit" onClick={() => setSearch("Entertainment")}>Entertainment</button>
+        <button type="submit" onClick={() => setSearch("Sports")}>Sports</button>
+        <button type="submit" onClick={() => setSearch("Science")}>Science</button>
+        <button type="submit" onClick={() => setSearch("Health")}>Health</button>
+      </form>
       <div className="newspostsbody">
         {post.map((eachPost, i) => (
-          // console.log(i, 'author', eachPost.provider[0].name)
-          // console.log(i, 'time', eachPost.datePublished)
-          // console.log(i, 'title', eachPost.name)
-          // console.log(i, 'description', eachPost.description)
-          // console.log(i, 'link', eachPost.url)
-          // console.log(i, 'image', eachPost.image.thumbnail.contentUrl)
-
           <Post
             key={i}
             source={eachPost?.provider[0]?.name}

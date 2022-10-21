@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
 }
+
 .navbar {
   width: 100%;
   display: flex;
@@ -9,39 +10,77 @@
   align-items: center;
   flex-wrap: wrap;
 }
+
 .logo {
   width: fit-content;
   padding: 10px;
 }
+
 .search {
   padding: 10px;
   width: fit-content;
 }
-form {
+
+.searchform {
   display: flex;
   justify-content: flex-end;
 }
+
 input {
   padding: 2%;
   font-family: cursive;
   border: 2px solid black;
   border-right: 0px solid black;
 }
-button {
+
+.searchform button {
   padding: 2%;
   font-family: cursive;
   background-color: white;
   cursor: pointer;
 }
+
+.searchform button:hover {
+  background-color: aqua;
+}
+
+.news {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.news button {
+  padding: 15px;
+  border: 0px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background-color: white;
+  font-size: large;
+}
+
+.news button:hover {
+  background-color: aqua;
+}
+
 @media screen and (max-width: 525px) {
   .logo {
     width: 100%;
     text-align: center;
   }
+
   .search {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .news button {
+    font-size: medium;
+    padding: 5px;
   }
 }
