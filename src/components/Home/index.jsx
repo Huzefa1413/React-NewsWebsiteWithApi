@@ -30,7 +30,7 @@ function Home() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("hi");
+    document.getElementById("searchbox").value = "";
     const options = {
       method: 'GET',
       url: 'https://bing-news-search1.p.rapidapi.com/news/search',
@@ -57,7 +57,7 @@ function Home() {
         </div>
         <div className="search">
           <form className="searchform" onSubmit={submitHandler}>
-            <input
+            <input id="searchbox"
               type="text"
               placeholder="Search Robotsy News"
               onChange={(e) => {
@@ -69,13 +69,13 @@ function Home() {
         </div>
       </div>
       <form className="news" onSubmit={submitHandler}>
-        <button type="submit" onClick={() => setSearch("World")}>World</button>
-        <button type="submit" onClick={() => setSearch("Business")}>Business</button>
-        <button type="submit" onClick={() => setSearch("Technology")}>Technology</button>
-        <button type="submit" onClick={() => setSearch("Entertainment")}>Entertainment</button>
-        <button type="submit" onClick={() => setSearch("Sports")}>Sports</button>
-        <button type="submit" onClick={() => setSearch("Science")}>Science</button>
-        <button type="submit" onClick={() => setSearch("Health")}>Health</button>
+        <button className={`${(search === "World") ? "highlight" : "nothighlight"}`} type="submit" onClick={() => setSearch("World")}>World</button>
+        <button className={`${(search === "Business") ? "highlight" : "nothighlight"}`} type="submit" onClick={() => setSearch("Business")}>Business</button>
+        <button className={`${(search === "Technology") ? "highlight" : "nothighlight"}`} type="submit" onClick={() => setSearch("Technology")}>Technology</button>
+        <button className={`${(search === "Entertainment") ? "highlight" : "nothighlight"}`} type="submit" onClick={() => setSearch("Entertainment")}>Entertainment</button>
+        <button className={`${(search === "Sports") ? "highlight" : "nothighlight"}`} type="submit" onClick={() => setSearch("Sports")}>Sports</button>
+        <button className={`${(search === "Science") ? "highlight" : "nothighlight"}`} type="submit" onClick={() => setSearch("Science")}>Science</button>
+        <button className={`${(search === "Health") ? "highlight" : "nothighlight"}`} type="submit" onClick={() => setSearch("Health")}>Health</button>
       </form>
       <div className="newspostsbody">
         {post.map((eachPost, i) => (
